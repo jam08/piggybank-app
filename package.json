@@ -4,7 +4,10 @@
 	"readme": "NativeScript Application",
 	"repository": "<fill-your-repository-here>",
 	"nativescript": {
-		"id": "org.nativescript.piggybankapp"
+		"id": "org.nativescript.piggybankapp",
+		"tns-ios": {
+			"version": "3.4.1"
+		}
 	},
 	"dependencies": {
 		"nativescript-theme-core": "~1.0.4",
