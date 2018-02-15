@@ -1,0 +1,60 @@
+Page {
+  background-color: #fcc414;
+}
+GridLayout {
+  width: 100%;
+  height: auto;
+  background-color: #fcc414;
+}
+
+.logo-mainpage {
+  margin-top: 40;
+  vertical-align: bottom;
+}
+
+.pecita {
+  text-align: center;
+  vertical-align: top;
+  font-size: 35;
+  font-family: "Pecita";
+  color: #ffffff;
+}
+  
+.subtitle {
+  margin-top: 5;
+  vertical-align: top;
+  text-align: center;
+  font-size: 18;
+  font-family: "Lato";
+  font-weight: 100;
+  color: #ffffff;
+}
+  
+TextField {
+  width: 85%;
+  padding-left: 10;
+  vertical-align: center;
+  color: #ffffff;
+  font-size: 20;
+  border-bottom-style: solid;
+  border-bottom-color: #ffffff;
+  border-bottom-width: 1;
+}
+  
+.btn {
+  width: 85%;
+  margin-top: 10;
+  background-color: #ee671e;
+  color: #ffffff;
+  font-size: 20;
+}
+  
+.link {
+  border-width: 1;
+  border-color: transparent;
+  background-color: transparent;
+  margin-top: 10;
+  vertical-align: top;
+  color: #ffffff;
+  font-size: 20;
+}
