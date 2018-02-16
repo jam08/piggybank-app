@@ -1,16 +1,73 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+<!--<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">-->
+<Page loaded="loaded">
   <Page.actionBar>
-      <ActionBar title="Little Pygge" icon="" class="action-bar">
+      <ActionBar title="Login" icon="" class="action-bar">
       </ActionBar>
   </Page.actionBar>
-  <GridLayout columns="*, *" rows="2*, auto, *, * , *, *, *, *">
-    <Image src="res://pygge3x" stretch="aspectFit" row="0" col="0" colSpan="2" class="logo-mainpage"/> 
-    <Label text="Little Pygge" row="1" col="0" colSpan="2" class="h1 pecita"/>
-    <Label text="Help me manage my allowances" row="2" col="0" colSpan="2" class="h2 subtitle"/>
-    <TextField hint="email@email.com" keyboardType="email" autocorrect="false" autocaptalizationType="none" row="3" col="0" colSpan="2"/>
-    <TextField hint="********" secure="true" row="4" col="0" colSpan="2"/>
-    <Button text="Login" row="5" col="0" colSpan="2" class="btn"/>
-    <Button text="Forgot?" row="6" col="0" class="link" />
-    <Button text="Sign up" row="6" col="1" class="link" />
+  <GridLayout columns="*, *" rows="*, auto, 50, auto, auto, 80, *">
+    <Image 
+      src="res://pygge3x" 
+      stretch="aspectFit" 
+      row="0" 
+      col="0" 
+      colSpan="2" 
+      class="logo-mainpage"
+    /> 
+    <Label 
+      text="Little Pygge" 
+      row="1" 
+      col="0" 
+      colSpan="2" 
+      class="h1 pecita"
+    />
+    <Label 
+      text="Help me manage my allowances" 
+      row="2" 
+      col="0" 
+      colSpan="2" 
+      class="h2 subtitle"
+    />
+    <TextField 
+      id="email"
+      text="{{ email }}"
+      hint="Email address" 
+      keyboardType="email" 
+      autocorrect="false" 
+      autocaptalizationType="none" 
+      row="3" 
+      col="0" 
+      colSpan="2"
+    />
+    <TextField 
+      id="password" 
+      text="{{ password }}"
+      hint="********" 
+      secure="true" 
+      row="4" 
+      col="0" 
+      colSpan="2"
+    />
+    <Button 
+      text="Login" 
+      row="5" 
+      col="0" 
+      colSpan="2" 
+      tap="signIn" 
+      class="btn"
+    />
+    <Button 
+      text="Forgot?" 
+      row="6" 
+      col="0" 
+      tap="reset" 
+      class="link" 
+    />
+    <Button 
+      text="Sign up" 
+      row="6" 
+      col="1" 
+      tap="register" 
+      class="link"
+    />
   </GridLayout>
 </Page>

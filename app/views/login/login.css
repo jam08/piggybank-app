@@ -1,14 +1,10 @@
 Page {
   background-color: #fcc414;
 }
-GridLayout {
-  width: 100%;
-  height: auto;
-  background-color: #fcc414;
-}
 
 .logo-mainpage {
-  margin-top: 40;
+  height: 20%;
+  width: auto;
   vertical-align: bottom;
 }
 
@@ -21,21 +17,17 @@ GridLayout {
 }
   
 .subtitle {
-  margin-top: 5;
   vertical-align: top;
   text-align: center;
-  font-size: 18;
-  font-family: "Lato";
-  font-weight: 100;
   color: #ffffff;
 }
   
 TextField {
   width: 85%;
+  height: 10%;
   padding-left: 10;
-  vertical-align: center;
+  vertical-align: bottom;
   color: #ffffff;
-  font-size: 20;
   border-bottom-style: solid;
   border-bottom-color: #ffffff;
   border-bottom-width: 1;
@@ -43,18 +35,18 @@ TextField {
   
 .btn {
   width: 85%;
-  margin-top: 10;
   background-color: #ee671e;
+  font-weight: 400;
   color: #ffffff;
-  font-size: 20;
 }
-  
+
+/* border-width, border-color, background-color set for android */
 .link {
+  margin-top: 10;
   border-width: 1;
   border-color: transparent;
   background-color: transparent;
-  margin-top: 10;
   vertical-align: top;
+  font-weight: 400;
   color: #ffffff;
-  font-size: 20;
 }

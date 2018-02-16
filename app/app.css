@@ -1,4 +1,24 @@
-﻿ActionBar {
+﻿Page {
+  background-color: #ffffff;
+  font-size: 20;
+  font-family: "Lato";
+  font-weight: 300;
+}
+ActionBar {
   background-color:#fcc414;
   color: #ffffff;
+}
+
+GridLayout {
+  width: 100%;
+  height: 100%;
+  background-color: #fcc414;
+}
+
+.btn {
+  width: 85%;
+  margin-top: 10;
+  background-color: #ee671e;
+  color: #ffffff;
+  font-size: 20;
 }
