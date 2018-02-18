@@ -7,6 +7,22 @@ purpose of the file is to pass control to the app’s first module.
 require("./bundle-config");
 var application = require("application");
 
+const firebase = require("nativescript-plugin-firebase");
+
+
+firebase.init({
+  // Optionally pass in properties for database, authentication and cloud messaging,
+  // see their respective docs.
+  iOSEmulatorFlush: true
+}).then(
+    function (instance) {
+      console.log("firebase.init done");
+    },
+    function (error) {
+      console.log("firebase.init error: " + error);
+    }
+);
+
 application.start({ moduleName: "views/login/login" });
 
 /*

@@ -24,7 +24,6 @@
     />
     <TextField 
       id="firstName"
-      text="{{ firstName }}"
       hint="First Name" 
       keyboardType="email" 
       autocorrect="false" 
@@ -35,7 +34,6 @@
     />
     <TextField 
       id="surname"
-      text="{{ surname }}"
       hint="Surname" 
       keyboardType="email" 
       autocorrect="false" 
@@ -45,7 +43,6 @@
       colSpan="2"/>
     <TextField 
       id="email"
-      text="{{ email }}" 
       hint="email@email.com" 
       keyboardType="email" 
       autocorrect="false" 

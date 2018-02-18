@@ -13,6 +13,7 @@
 		}
 	},
 	"dependencies": {
+		"nativescript-plugin-firebase": "^5.1.7",
 		"nativescript-theme-core": "~1.0.4",
 		"tns-core-modules": "~3.4.0"
 	},

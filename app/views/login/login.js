@@ -1,7 +1,7 @@
-var frameModule = require("ui/frame");
+const frameModule = require("ui/frame");
 
-var observableModule = require("data/observable");
-var user = new observableModule.fromObject({
+const observableModule = require("data/observable");
+const user = new observableModule.fromObject({
     email: "email@email.com",
     password: ""
 });
