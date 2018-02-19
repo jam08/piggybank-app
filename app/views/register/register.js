@@ -1,5 +1,5 @@
 const firebase = require("nativescript-plugin-firebase");
-//console.dir(firebase.setValue);
+
 var page;
 
 exports.loaded = function(args) {
@@ -12,7 +12,6 @@ exports.signUp = function() {
     firstName: page.getViewById("firstName").text,
     surname: page.getViewById("surname").text,
     email: page.getViewById("email").text,
-    password: page.getViewById("password").text
   };
 
   for(const [key, value] of Object.entries(newUser)) {
@@ -26,15 +25,19 @@ exports.signUp = function() {
       page.getViewById(field).style.borderBottomColor = "red";
     });
   }else {
+    firebase.createUser(
+      {
+        email: newUser.email,
+        password: newUser.password
+      })
+      .then(result => console.log("userid: " + result.key))
+      .catch(error => console.log(error));
     firebase.push('/users', newUser)
       .then(
-        function (result) {
+        function(result) {
           console.log("created key: " + result.key);
         }
       );
     alert("Account created");
   }
-  
-
-    //firebase.setValue('/users', newUser);
 };
