@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "277100821952",
+    "firebase_url": "https://piggybank-app-e2667.firebaseio.com",
+    "project_id": "piggybank-app-e2667",
+    "storage_bucket": "piggybank-app-e2667.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277100821952:android:b7e5dba11c1c77d6",
+        "android_client_info": {
+          "package_name": "org.nativescript.piggybankapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "277100821952-ec74e0npk6flfdhk7fogikt8hoh0nas8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsNftLHCCBWTw90DtdhwDGg3XMWJZ_5Wg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
