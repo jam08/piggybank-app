@@ -1,0 +1,32 @@
+Page, #children {
+  background-color: #ffffff;
+}
+#children {
+  padding-right: 20;
+  padding-left: 20;
+}
+/* border-width, border-color, background-color set for android */
+.secondary-btn {
+  width: 110;
+  height: 40;
+  border-width: 1;
+  border-color: transparent;
+  background-color: transparent;
+  color: #616161;
+  font-weight: 400;
+  font-size: 14;
+}
+
+.grid-title {
+  font-weight: 400;
+  vertical-align: center;
+}
+
+ListView {
+  background-color: #ededed;
+  height: auto;
+}
+.grid-item {
+  height: 20%;
+  text-align: center;
+}

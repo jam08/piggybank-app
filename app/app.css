@@ -5,6 +5,8 @@
   font-weight: 300;
 }
 ActionBar {
+  border-width: 1;
+  border-color: transparent;
   background-color:#fcc414;
   color: #ffffff;
 }

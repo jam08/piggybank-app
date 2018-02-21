@@ -2,7 +2,7 @@
 <Page loaded="loaded">
   <Page.actionBar>
     <ActionBar title="Register">
-      <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" tap="onNavBtnTap"/>
+      <NavigationButton text="LOGIN" android.systemIcon="ic_menu_back" tap="onNavBtnTap"/>
     </ActionBar>
   </Page.actionBar>
   <GridLayout 

@@ -10,11 +10,25 @@ const user = new observableModule.fromObject({
 });
 
 var page;
+var isLoggedIn = true;
 
 exports.loaded = function(args) {
   page = args.object;
   page.bindingContext = user;
-
+  /* Have issues with firebase and keychain entitlements in iOS 
+   * Hardcoded login so I can continue to work on the app.
+   * Need to remove this later and uncomment the firebase.getCurrentUser().
+   */
+  if(isLoggedIn) {
+    const navigationEntry = {
+      moduleName: "views/dashboard/dashboard",
+      context: {user: "Janaina"},
+      animated: false
+    }
+    const topmost = frameModule.topmost();
+    topmost.navigate(navigationEntry)
+  }
+  /*
   firebase.getCurrentUser()
     .then((user) => {
       const navigationEntry = {
@@ -26,6 +40,7 @@ exports.loaded = function(args) {
       topmost.navigate(navigationEntry)
     })
     .catch(error => console.log("trouble: " + error));
+    */
 }
 exports.signIn = function() {
   if (!user.email || !user.password) {
