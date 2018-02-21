@@ -48,7 +48,7 @@
       colSpan="2"
     />
     <Button 
-      text="Login" 
+      text="LOGIN" 
       row="5" 
       col="0" 
       colSpan="2" 
@@ -56,14 +56,14 @@
       class="btn"
     />
     <Button 
-      text="Forgot?" 
+      text="FORGOT?" 
       row="6" 
       col="0" 
       tap="reset" 
       class="link" 
     />
     <Button 
-      text="Sign up" 
+      text="SIGN UP" 
       row="6" 
       col="1" 
       tap="register" 
