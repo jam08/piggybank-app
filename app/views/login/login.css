@@ -1,0 +1,52 @@
+Page {
+  background-color: #fcc414;
+}
+
+.logo-mainpage {
+  height: 20%;
+  width: auto;
+  vertical-align: bottom;
+}
+
+.pecita {
+  text-align: center;
+  vertical-align: top;
+  font-size: 35;
+  font-family: "Pecita";
+  color: #ffffff;
+}
+  
+.subtitle {
+  vertical-align: top;
+  text-align: center;
+  color: #ffffff;
+}
+  
+TextField {
+  width: 85%;
+  height: 10%;
+  padding-left: 10;
+  vertical-align: bottom;
+  color: #ffffff;
+  border-bottom-style: solid;
+  border-bottom-color: #ffffff;
+  border-bottom-width: 1;
+}
+  
+.btn {
+  width: 85%;
+  background-color: #ee671e;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+/* border-width, border-color, background-color set for android */
+.link {
+  margin-top: 10;
+  border-width: 1;
+  border-color: transparent;
+  background-color: transparent;
+  vertical-align: top;
+  font-weight: 400;
+  color: #ffffff;
+}

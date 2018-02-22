@@ -1,0 +1,29 @@
+Page {
+  background-color: #fcc414;
+}
+
+.pecita {
+  vertical-align: center;
+  text-align: center;
+  font-size: 35;
+  font-family: "Pecita";
+  color: #ffffff;
+  }
+
+.form-header {
+  width: 85%;
+  padding-left: 10;
+  font-size: 20;
+  color: #ffffff;
+}
+
+TextField {
+  width: 85%;
+  height: 10%;
+  margin-bottom: 5;
+  padding-left: 10;
+  border-bottom-width: 1;
+  border-bottom-color: #ffffff;
+  color: #ffffff;
+  font-size: 20;
+}
