@@ -1,0 +1,60 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="loaded">
+  <Page.actionBar>
+    <ActionBar title="DASHBOARD"/>
+  </Page.actionBar>
+  <GridLayout
+    id="container" 
+    columns="*" 
+    rows="*, *, 10*"
+    backgroundColor="#ffffff"
+  >
+    <Button 
+      col="0" 
+      row="0" 
+      id="add-child" 
+      text="+ ADD CHILD" 
+      tap="addChild"
+      borderWidth="1"
+      borderColor="transparent"
+      backgroundColor="transparent" 
+      horizontalAlignment="right"
+      />
+    <Label col="0" row="1" class="grid-title" text="MY CHILDREN"/>
+    <ListView col="0" row="2" id="children" items="{{ children }}" separatorColor="transparent">
+      <ListView.itemTemplate>
+        <GridLayout 
+          class="listItem" 
+          columns="*, *, *" 
+          rows="*" 
+          borderBottomWidth="10" 
+          borderBottomColor="#ffffff"
+        >
+          <Image 
+            class="item-img"  
+            col="0" 
+            row="0" 
+            src="{{ image }}" 
+            horizontalAlignment="left" 
+            verticalAlignment="center"
+          />
+          <Label 
+            class="item-name" 
+            col="1" 
+            row="0" 
+            text="{{ name }}" 
+            horizontalAlignment="center" 
+            verticalAlignment="center"
+          />
+          <Label 
+            class="item-cash" 
+            col="2" 
+            row="0" 
+            text="{{ cash }}" 
+            horizontalAlignment="right" 
+            verticalAlignment="center"
+          />
+        </GridLayout>
+      </ListView.itemTemplate>
+    </ListView>
+  </GridLayout>
+</Page>
