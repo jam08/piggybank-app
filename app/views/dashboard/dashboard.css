@@ -3,12 +3,6 @@ Page {
   background-color: #ffffff;
 }
 
-#container {
-  width: 90%;
-  margin-left: 10;
-  margin-right: 10;
-}
-
 /* border-width, border-color, background-color set for android */
 #add-child {
   width: 110;
@@ -16,11 +10,6 @@ Page {
   color: #616161;
   font-weight: 400;
   font-size: 14;
-}
-
-.grid-title {
-  font-weight: 400;
-  vertical-align: center;
 }
 
 #children {

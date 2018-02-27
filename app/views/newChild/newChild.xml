@@ -1,0 +1,85 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="loaded">
+  <actionBar>
+    <NavigationButton  
+      text="Cancel"
+      android.systemIcon="ic_menu_close_clear_cancel" 
+      tap="onNavBtnTap"  
+    />
+  </actionBar>
+  <GridLayout
+    id="container" 
+    columns="*, *" 
+    rows="*, 2*, *, *, *, *, *"
+    backgroundColor="#ffffff"
+  >
+    <Label 
+      col="0" 
+      row="0" 
+      colSpan="2" 
+      class="grid-title" 
+      text="NEW CHILD"
+      verticalAlignment="bottom"
+    />
+    <Image 
+      col="0" 
+      row="1" 
+      colSpan="2"
+      src="res://pygge3x" 
+      stretch="aspectFit"
+      width="120"
+      verticalAlignment="bottom"
+    />
+    <Button 
+      col="0" 
+      row="2" 
+      colSpan="2" 
+      text="ADD PHOTO" 
+      tap="addPhoto"
+      borderWidth="1"
+      borderColor="transparent"
+      backgroundColor="transparent"
+    />
+    <TextField
+      col="0"
+      row="3"
+      colSpan="2"
+      id="childName"
+      hint="CHILD NAME"  
+      autocorrect="false" 
+      autocaptalizationType="none"
+      borderWidth="1"
+      borderColor="transparent" 
+    />
+    <Button
+      col="0"
+      row="5"
+      colSpan="2"
+      text="ALLOWANCE TYPE"
+      tap="showPicker"
+      borderWidth="1"
+      borderColor="transparent"
+      backgroundColor="transparent"
+    />
+    <ListPicker
+      col="0"
+      row="6"
+      colSpan="2" 
+      id="allowance"
+      items="{{ items }}"
+      selectedIndex="0"
+      selectIndexChange="onSelectIndexChange"
+    />
+    <TextField
+      col="0"
+      row="4"
+      colSpan="2"
+      id="amount"
+      hint="0kr"
+      keyboardType="number" 
+      autocorrect="false" 
+      autocaptalizationType="none"
+      borderWidth="1"
+      borderColor="transparent"
+    />
+  </GridLayout>
+</Page>
