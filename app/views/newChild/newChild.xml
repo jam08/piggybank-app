@@ -52,7 +52,7 @@
     />
     <Button
       col="0"
-      row="5"
+      row="4"
       colSpan="2"
       text="ALLOWANCE TYPE"
       tap="showPicker"
@@ -62,7 +62,7 @@
     />
     <ListPicker
       col="0"
-      row="6"
+      row="5"
       colSpan="2" 
       id="allowance"
       items="{{ items }}"
@@ -71,7 +71,7 @@
     />
     <TextField
       col="0"
-      row="4"
+      row="6"
       colSpan="2"
       id="amount"
       hint="0kr"
