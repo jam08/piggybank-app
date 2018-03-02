@@ -9,7 +9,7 @@
   <GridLayout
     id="container" 
     columns="*, *" 
-    rows="*, 2*, *, *, *, *, *, *, *"
+    rows="*, 2*, *, *, *, *"
     backgroundColor="#ffffff"
   >
     <Label 
@@ -24,7 +24,7 @@
       col="0" 
       row="1" 
       colSpan="2"
-      src="res://pygge3x" 
+      src="res://pygge3x_bw" 
       stretch="aspectFit"
       width="120"
       verticalAlignment="bottom"
@@ -33,7 +33,7 @@
       col="0" 
       row="2" 
       colSpan="2" 
-      text="ADD PHOTO" 
+      text="Add Photo" 
       tap="addPhoto"
       borderWidth="1"
       borderColor="transparent"
@@ -43,62 +43,31 @@
       col="0"
       row="3"
       colSpan="2"
-      id="childName"
-      hint="CHILD NAME"  
+      hint="Name"
+      id="childName"  
       autocorrect="false" 
       autocaptalizationType="none"
       borderWidth="1"
       borderColor="transparent" 
     />
-    <Button
+    <ListView
       col="0"
       row="4"
-      colSpan="2"
-      text="ALLOWANCE TYPE"
-      tap="showPicker"
-      borderWidth="1"
-      borderColor="transparent"
-      backgroundColor="transparent"
-    />
-    <ListPicker
-      col="0"
-      row="5"
       colSpan="2" 
       id="allowance"
-      items="{{ type }}"
-      selectedIndex="0"
-      selectIndexChange="onSelectIndexChange"
-    />
-    <Button
-      col="0"
-      row="6"
-      colSpan="2"
-      text="CURRENCY"
-      tap="showCurrency"
-      borderWidth="1"
-      borderColor="transparent"
-      backgroundColor="transparent"
-    />
-    <ListPicker
-      col="0"
-      row="7"
-      colSpan="2" 
-      id="currency"
-      items="{{ currency }}"
-      selectedIndex="0"
-      selectIndexChange="onSelectIndexChange"
+      items="{{ allowanceItems }}"
     />
     <TextField
       col="0"
-      row="8"
+      row="5"
       colSpan="2"
-      id="amount"
-      hint="0kr"
-      keyboardType="number" 
+      hint="0"
+      id="cashValue"  
       autocorrect="false" 
       autocaptalizationType="none"
       borderWidth="1"
       borderColor="transparent"
+      horizontalAlignment="center" 
     />
   </GridLayout>
 </Page>
