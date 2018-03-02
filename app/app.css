@@ -19,7 +19,12 @@ GridLayout {
 }
 
 #container {
-  width: 90%;
+  width: 100%;
+  /*width: 90%;
+  margin-left: 10;
+  margin-right: 10;*/
+}
+.grid-rows {
   margin-left: 10;
   margin-right: 10;
 }
@@ -34,4 +39,8 @@ GridLayout {
   background-color: #ee671e;
   color: #ffffff;
   font-size: 20;
+}
+
+ListView {
+  height: 100%;
 }

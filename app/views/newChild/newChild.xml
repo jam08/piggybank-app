@@ -7,44 +7,54 @@
     />
   </actionBar>
   <GridLayout
-    id="container" 
-    columns="*, *" 
-    rows="*, 2*, *, *, *, *"
+    id="container"  
+    columns="*, 3*" 
+    rows="*, *, *, *, *, *"
     backgroundColor="#ffffff"
   >
     <Label 
       col="0" 
       row="0" 
       colSpan="2" 
-      class="grid-title" 
+      class="grid-title grid-rows" 
       text="NEW CHILD"
-      verticalAlignment="bottom"
     />
     <Image 
       col="0" 
       row="1" 
-      colSpan="2"
       src="res://pygge3x_bw" 
       stretch="aspectFit"
-      width="120"
-      verticalAlignment="bottom"
+      width="80"
+      verticalAlignment="center"
+      horizontalAlignment="left"
+      marginLeft="10"
     />
     <Button 
-      col="0" 
-      row="2" 
-      colSpan="2" 
-      text="Add Photo" 
-      tap="addPhoto"
+      col="1"
+      row="1"
+      id="profileImg"
+      text="add photo"
       borderWidth="1"
       borderColor="transparent"
       backgroundColor="transparent"
+      textTransform="capitalize"
+      horizontalAlignment="left"
+      verticalAlignment="center"
+      marginRight="10"
+    />
+    <Label
+      col="0"
+      row="2"
+      text="Name"
+      class="grid-rows input-label" 
     />
     <TextField
       col="0"
       row="3"
       colSpan="2"
-      hint="Name"
-      id="childName"  
+      hint="Child name"
+      id="childName"
+      class="grid-rows"  
       autocorrect="false" 
       autocaptalizationType="none"
       borderWidth="1"
@@ -55,19 +65,26 @@
       row="4"
       colSpan="2" 
       id="allowance"
+      class="grid-rows input-label"
       items="{{ allowanceItems }}"
+      separatorColor="transparent"
     />
-    <TextField
+    <label
       col="0"
       row="5"
-      colSpan="2"
+      text="Alowance"
+      class="grid-rows input-label"
+    />
+    <TextField
+      col="1"
+      row="5"
       hint="0"
-      id="cashValue"  
+      id="cashValue" 
       autocorrect="false" 
       autocaptalizationType="none"
       borderWidth="1"
       borderColor="transparent"
-      horizontalAlignment="center" 
+      horizontalAlignment="left"
     />
   </GridLayout>
 </Page>

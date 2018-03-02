@@ -19,8 +19,8 @@
       backgroundColor="transparent" 
       horizontalAlignment="right"
       />
-    <Label col="0" row="1" class="grid-title" text="MY CHILDREN"/>
-    <ListView col="0" row="2" id="children" items="{{ children }}" separatorColor="transparent">
+    <Label col="0" row="1" class="grid-title grid-rows" text="MY CHILDREN"/>
+    <ListView col="0" row="2" id="children" class="grid-rows" items="{{ children }}" separatorColor="transparent">
       <ListView.itemTemplate>
         <GridLayout 
           class="listItem" 
