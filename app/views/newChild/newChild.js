@@ -4,21 +4,41 @@ var frameModule = require("ui/frame");
 var topmost = frameModule.topmost();
 
 var pageData = new observableModule.fromObject({
-  items: new ObservableArray(["WEEKLY", "BI-WEEKLY", "MONTHLY"])
+  type: new ObservableArray(["WEEKLY", "BI-WEEKLY", "MONTHLY"]),
+  currency: new ObservableArray(["SEK", "EUR", "GBP"])
 });
 var page;
-var visible = false;
+var typeVisible = false;
+var currencyVisible = false;
 
 exports.loaded = function(args) {
   page = args.object;
   page.bindingContext = pageData;
 
-  const picker = page.getViewById("allowance");
-  visible ? picker.visibility="visible" : picker.visibility="collapse";
+  const allowanceType = page.getViewById("allowance");
+  typeVisible ? allowanceType.visibility="visible" : allowanceType.visibility="collapse";
+
+  const currency = page.getViewById("currency");
+  currencyVisible ? currency.visibility="visible" : currency.visibility="collapse";
 }
 
 exports.showPicker = function() {
-    visible = !visible;
-    const picker = page.getViewById("allowance");
-    visible ? picker.visibility="visible" : picker.visibility="collapse";
+    typeVisible = !typeVisible;
+    const allowanceType = page.getViewById("allowance");
+    typeVisible ? allowanceType.visibility="visible" : allowanceType.visibility="collapse";
+}
+
+exports.showCurrency = function() {
+  currencyVisible = !currencyVisible;
+  const currency = page.getViewById("currency");
+  currencyVisible ? currency.visibility="visible" : currency.visibility="collapse";
+}
+
+exports.createNewChild = function() {
+  const newChild = {
+    name: page.getViewById("childName"),
+    allowanceType: page.getViewById("allowance"),
+    amount: page.getViewById("amount")
+  }
+
 }

@@ -9,7 +9,7 @@
   <GridLayout
     id="container" 
     columns="*, *" 
-    rows="*, 2*, *, *, *, *, *"
+    rows="*, 2*, *, *, *, *, *, *, *"
     backgroundColor="#ffffff"
   >
     <Label 
@@ -65,13 +65,32 @@
       row="5"
       colSpan="2" 
       id="allowance"
-      items="{{ items }}"
+      items="{{ type }}"
+      selectedIndex="0"
+      selectIndexChange="onSelectIndexChange"
+    />
+    <Button
+      col="0"
+      row="6"
+      colSpan="2"
+      text="CURRENCY"
+      tap="showCurrency"
+      borderWidth="1"
+      borderColor="transparent"
+      backgroundColor="transparent"
+    />
+    <ListPicker
+      col="0"
+      row="7"
+      colSpan="2" 
+      id="currency"
+      items="{{ currency }}"
       selectedIndex="0"
       selectIndexChange="onSelectIndexChange"
     />
     <TextField
       col="0"
-      row="6"
+      row="8"
       colSpan="2"
       id="amount"
       hint="0kr"

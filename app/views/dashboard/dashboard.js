@@ -46,7 +46,9 @@ exports.loaded = function loaded(args) {
   console.log("page loaded");
   const page = args.object; 
  
-  const child = pageData.get(children.name);
+  //const child = pageData.get(children.name);
+  const arr = pageData.get("children");
+  arr.map(child => console.log(child.name));
   page.bindingContext = pageData;
   /* Get current user's email */
   /*firebase.getCurrentUser()
