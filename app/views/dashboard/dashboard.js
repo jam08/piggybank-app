@@ -1,5 +1,5 @@
 const firebase = require("nativescript-plugin-firebase");
-var observableModule = require("data/observable")
+var observableModule = require("data/observable");
 var ObservableArray = require("data/observable-array").ObservableArray;
 var frameModule = require("ui/frame");
 var topmost = frameModule.topmost();
@@ -43,7 +43,6 @@ var getChildren = function(email) {
 }
 
 exports.loaded = function loaded(args) {
-  console.log("page loaded");
   const page = args.object; 
  
   //const child = pageData.get(children.name);

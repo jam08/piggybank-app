@@ -19,17 +19,19 @@ exports.loaded = function(args) {
    * Hardcoded login so I can continue to work on the app.
    * Need to remove this later and uncomment the firebase.getCurrentUser().
    */
-  /*
+ // /*
   if(isLoggedIn) {
     const navigationEntry = {
       moduleName: "views/dashboard/dashboard",
       context: {user: "Janaina"},
-      animated: false
+      animated: false,
+      backstackVisible: false
     }
     const topmost = frameModule.topmost();
     topmost.navigate(navigationEntry)
-  }*/
-  ///*
+  }
+  //*/
+  /*
   firebase.getCurrentUser()
     .then((user) => {
       const navigationEntry = {
@@ -38,7 +40,7 @@ exports.loaded = function(args) {
         animated: false
       }
       const topmost = frameModule.topmost();
-      topmost.navigate(navigationEntry)
+      topmost.navigate(navigationEntry);
     })
     .catch(error => console.log("trouble: " + error));
     //*/

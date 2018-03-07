@@ -1,25 +1,29 @@
 #profileImg {
-    color: #fcc414;
+  color: #fcc414;
 }
 
 TextField {
-    color: #fcc414;
+  
+  color: #fcc414;
 }
 
-Button {
-    text-align: left;
+.select-btn {
+  text-align: left;
 }
 
-#cashValue {
-    width: 100%;
-    height: 25%;
-    text-align: center;
-    font-size: 36;
-    font-weight: bold;
-    color: #ffffff;
-    background-color:#fcc414;
+.input-allowance {
+  width: 100%;
+  text-align: right;
 }
 
-.input-label {
-    font-size: 16;
+Label {
+  width: 100%;
+}
+.right-label {
+  text-align: right;
+  color: #bbbab8;
+}
+
+.left-label {
+  text-align: left;
 }

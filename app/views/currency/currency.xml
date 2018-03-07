@@ -1,0 +1,16 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="loaded">
+  <Page.actionBar>
+    <ActionBar title="Currency"/>
+  </Page.actionBar>
+  <ListView
+    items="{{ currency }}" 
+    itemTap="saveCurrency"
+  >
+    <ListView.itemTemplate>
+      <Label
+          class="items"
+          text="{{ code }}" 
+        />
+    </ListView.itemTemplate>
+  </ListView>
+</Page>
