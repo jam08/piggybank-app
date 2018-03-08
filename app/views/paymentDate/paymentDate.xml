@@ -1,0 +1,24 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="onLoaded">
+  <Page.actionBar>
+    <ActionBar title="First Allowance Date"/>
+    <NavigationButton  
+      text="Cancel"
+      android.systemIcon="ic_menu_close_clear_cancel" 
+      tap="onNavBtnTap"  
+    />
+  </Page.actionBar>
+  <GridLayout columns="*" rows="*, *">
+    <DatePicker 
+      col="0"
+      row="0"
+      id="datePicker"
+      verticalAlignment="center"
+    />
+    <Button 
+    col="0"
+    row="1"
+    text="OK"
+    tap="onTap"
+    />
+  </GridLayout>
+</Page>

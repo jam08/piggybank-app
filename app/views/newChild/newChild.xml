@@ -9,7 +9,7 @@
   <GridLayout
     id="container"  
     columns="*, *, *" 
-    rows="*, *, *, *, *, *, *"
+    rows="*, *, *, *, *, *, *, *, *"
     backgroundColor="#ffffff"
   >
     <Label 
@@ -118,9 +118,26 @@
       horizontalAlignment="right"
       placeholderColor="#bbbab8"
     />
-    <Button 
+    <Label
      col="0"
      row="6"
+     colSpan="3"
+     text="Start Date"
+     class="grid-rows left-label"
+     verticalAlignment="center"
+     horizontalAlignment="left"
+    />
+    <!--<DatePicker 
+      col="0"
+      row="7"
+      colSpan="3"
+      id="datePicker"
+      loaded="onDatePickerLoaded"
+      verticalAlignment="center"
+    />-->
+    <Button 
+     col="0"
+     row="7"
      colSpan="3"
      text="Save"
      borderWidth="1"

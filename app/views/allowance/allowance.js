@@ -21,13 +21,16 @@ exports.loaded = function(args) {
 
 exports.saveType= function(eventData) {
   const itemView = eventData.view;
-  itemView.color = "#ee671e";
   const navigationEntry = {
     moduleName: "views/newChild/newChild",
     context: {type: itemView.text},
     animated: false,
     backstackVisible: false
   }
-  //const topmost = frameModule.topmost();
+  itemView.text === "MONTHLY"
+  ?
+  topmost.navigate("views/paymentDate/paymentDate")
+  :
   topmost.navigate(navigationEntry);
+
 };

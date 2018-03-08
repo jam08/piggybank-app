@@ -11,17 +11,30 @@ var pageData = new observableModule.fromObject({
   childName: "Child Name",
   allowanceType: "choose",
   currencyCode: "choose",
-  amount: "0"
+  amount: "0",
+  firstPayment: ""
 });
 
 var page;
 var page1;
-var typeVisible = false;
-var currencyVisible = false;
 
 exports.loaded = function(args) {
   page = args.object;
   page.bindingContext = pageData;
+  
+}
+
+exports.pageNavigatedTo = function(args) {
+  page1 = args.object;
+  var context = page1.navigationContext;
+  if(context) {
+    console.log("newChild: " + context.firstPayment);
+    context.type ? pageData.set("allowanceType", context.type) : "";
+    context.code ? pageData.set("currencyCode", context.code) : "";
+    context.firstPayment ? pageData.set("firstPayment", context.firstPayment) : ""
+  }else {
+    console.log("No navigation context");
+  }
 }
 
 exports.onFocusName = function(eventData) {
@@ -35,15 +48,13 @@ exports.onFocusAmount = function(eventData) {
   const amount = eventData.object.text;
   amount === "0" ? pageData.set("amount", "") : console.log(amount);
 }
-exports.pageNavigatedTo = function(args) {
-  page1 = args.object;
-  var context = page1.navigationContext;
-  if(context) {
-    context.type ? pageData.set("allowanceType", context.type) : "";
-    context.code ? pageData.set("currencyCode", context.code) : "";
-  }else {
-    console.log("No navigation context");
-  }
+
+exports.onDatePickerLoaded = function(args) {
+  let datePicker = args.object;
+  let today = new Date();
+  datePicker.day = today.getDate();
+  datePicker.month = today.getMonth() + 1;
+  datePicker.year = today.getFullYear();
 }
 
 exports.onTap = function(eventData) {
@@ -56,11 +67,13 @@ exports.onTap = function(eventData) {
 }
 
 exports.saveChild = function() {
+  
   const newChild = {
     name: pageData.get("childName"),
     allowanceType: pageData.get("allowanceType"),
     currencyCode: pageData.get("currencyCode"),
-    amount: pageData.get("amount")
+    amount: pageData.get("amount"),
+    firstPayment: pageData.get("firstPayment")
   };
-  console.dir(newChild);
+  console.log(newChild.firstPayment);
 }
