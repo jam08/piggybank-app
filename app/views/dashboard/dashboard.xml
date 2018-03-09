@@ -1,11 +1,11 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="loaded">
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="loaded" navigatedTo="pageNavigatedTo">
   <Page.actionBar>
     <ActionBar title="DASHBOARD"/>
   </Page.actionBar>
   <GridLayout
     id="container" 
     columns="*" 
-    rows="*, *, 10*"
+    rows="*, *, 10*, *"
     backgroundColor="#ffffff"
   >
     <Button 
@@ -18,7 +18,7 @@
       borderColor="transparent"
       backgroundColor="transparent" 
       horizontalAlignment="right"
-      />
+    />
     <Label col="0" row="1" class="grid-title grid-rows" text="MY CHILDREN"/>
     <ListView col="0" row="2" id="children" class="grid-rows" items="{{ children }}" separatorColor="transparent">
       <ListView.itemTemplate>
@@ -56,5 +56,16 @@
         </GridLayout>
       </ListView.itemTemplate>
     </ListView>
+    <Button 
+      col="0" 
+      row="3" 
+      id="logout-btn" 
+      text="LOGOUT" 
+      tap="logout"
+      borderWidth="1"
+      borderColor="transparent"
+      backgroundColor="transparent" 
+      horizontalAlignment="right"
+      />
   </GridLayout>
 </Page>

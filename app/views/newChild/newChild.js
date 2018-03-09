@@ -1,12 +1,9 @@
+const firebase = require("nativescript-plugin-firebase");
 var observableModule = require("data/observable")
 var ObservableArray = require("data/observable-array").ObservableArray;
 var frameModule = require("ui/frame");
 var topmost = frameModule.topmost();
 
-/*var pageData = new observableModule.fromObject({
-  type: new ObservableArray(["WEEKLY", "BI-WEEKLY", "MONTHLY"]),
-  currency: new ObservableArray(["SEK", "EUR", "GBP"])
-});*/
 var pageData = new observableModule.fromObject({
   childName: "Child Name",
   allowanceType: "choose",
@@ -15,8 +12,10 @@ var pageData = new observableModule.fromObject({
   firstPayment: ""
 });
 
-var page;
-var page1;
+let page;
+let page1;
+let userKey;
+let children = [];
 
 exports.loaded = function(args) {
   page = args.object;
@@ -28,10 +27,11 @@ exports.pageNavigatedTo = function(args) {
   page1 = args.object;
   var context = page1.navigationContext;
   if(context) {
-    console.log("newChild: " + context.firstPayment);
+    console.log("userKey: " + userKey);
     context.type ? pageData.set("allowanceType", context.type) : "";
     context.code ? pageData.set("currencyCode", context.code) : "";
     context.firstPayment ? pageData.set("firstPayment", context.firstPayment) : ""
+    context.userKey ? userKey = context.userKey : "";
   }else {
     console.log("No navigation context");
   }
@@ -73,7 +73,20 @@ exports.saveChild = function() {
     allowanceType: pageData.get("allowanceType"),
     currencyCode: pageData.get("currencyCode"),
     amount: pageData.get("amount"),
-    firstPayment: pageData.get("firstPayment")
+    firstPayment: pageData.get("firstPayment"),
+    balance: 0,
+    parent: userKey
   };
+  firebase.push(
+    '/children',
+    newChild
+).then(
+    function (result) {
+      const path = "/users/" + userKey;
+      children.push(result.key);
+      firebase.update(path, {'children': children});
+      console.log("created key: " + result.key);
+    }
+);
   console.log(newChild.firstPayment);
 }

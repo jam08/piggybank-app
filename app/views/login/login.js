@@ -19,7 +19,7 @@ exports.loaded = function(args) {
    * Hardcoded login so I can continue to work on the app.
    * Need to remove this later and uncomment the firebase.getCurrentUser().
    */
- // /*
+ /*
   if(isLoggedIn) {
     const navigationEntry = {
       moduleName: "views/dashboard/dashboard",
@@ -31,7 +31,7 @@ exports.loaded = function(args) {
     topmost.navigate(navigationEntry)
   }
   //*/
-  /*
+  ///*
   firebase.getCurrentUser()
     .then((user) => {
       const navigationEntry = {
@@ -45,6 +45,12 @@ exports.loaded = function(args) {
     .catch(error => console.log("trouble: " + error));
     //*/
 }
+
+exports.onFocus = function(eventData) {
+  const text = eventData.object.text;
+  text === "email@email.com" ? user.set("email", "") : "";
+}
+
 exports.signIn = function() {
   if (!user.email || !user.password) {
     alert("Please provide both an email address and password.");
@@ -65,7 +71,6 @@ exports.signIn = function() {
         })
         .catch(error => console.log(error));
     }
-    //alert(user.email);
 };
 
 exports.register = function() {

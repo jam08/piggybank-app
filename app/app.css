@@ -37,6 +37,8 @@ GridLayout {
   width: 85%;
   margin-top: 10;
   background-color: #ee671e;
+  border-width: 1;
+  border-color: transparent;
   color: #ffffff;
   font-size: 20;
 }
