@@ -5,32 +5,31 @@ var topmost = require("ui/frame").topmost();
 
 var pageData = new observableModule.fromObject({
   children: new ObservableArray([
-  { image: "res://pygge3x", name: "JOSHUA", cash: "50kr" },
-  { image: "res://pygge3x", name: "SIENA", cash: "50kr" }
   ])
 });
 
 let userKey;
+let userChildren;
 
-var onQueryEvent = function(result) {
-  console.log("query event called");
-  // note that the query returns 1 match at a time
-  // in the order specified in the query
-  if (!result.error) {
-    for(const key in result.value) {
-      userKey = key;
-    }
-    console.log("Event type: " + result.type);
-    console.log("Key: " + result.key);
-    console.log("Value: " + JSON.stringify(result.value));
-  }else {
-    console.log(result.error);
-  }
-};
-
-var getChildren = function(email) {
+var getUserKey = function(email) {
   firebase.query(
-    onQueryEvent,
+    function(result) {
+      const user = result.value;
+      let childrenArray;
+      for(const key in user) {
+        userKey = key;
+        childrenArray = user[key].children;
+      }
+      if(!userChildren) {
+        userChildren = childrenArray;
+        console.log("userChildren: " +  userChildren);
+      }else {
+        userChildren.map((childKey) => {
+          console.log("childKey: " + childKey);
+        })
+      }
+      getChildren(userChildren);
+    },
     "/users",
     {
       // checks if the value exists or the event fires once
@@ -47,16 +46,48 @@ var getChildren = function(email) {
   );
 }
 
+var getChildren = function (childrenArray) {
+
+  console.log("result getChildren: " + childrenArray);
+  let count = 0;
+  childrenArray.map((key) => {
+      console.log("duh" + key);
+      firebase.query(
+        function(result) {
+          const child = result.value;
+          for(const key in child) {
+           let childObj = {
+              image: "res://pygge3x",
+              name: child[key].name,
+              balance: child[key].balance
+            }
+            let data = pageData.get("children");
+            data.setItem(count, childObj);
+            count++;
+          }
+        },
+        "/children",
+        {
+          singleEvent: true,
+          orderBy: {
+          type: firebase.QueryOrderByType.KEY
+          }, 
+          range: {
+            type: firebase.QueryRangeType.EQUAL_TO,
+            value: key
+          }
+        }
+      );
+    }
+  );
+}
+
 exports.loaded = function loaded(args) {
   const page = args.object; 
-  
-  //const child = pageData.get(children.name);
-  //const arr = pageData.get("children");
-  //arr.map(child => console.log(child.name));
   page.bindingContext = pageData;
   /* Get current user's email */
   firebase.getCurrentUser()
-    .then(user => getChildren(user.email))
+    .then(user => getUserKey(user.email))
     .catch(error => console.log("trouble: " + error));
 }
 
@@ -68,7 +99,7 @@ exports.pageNavigatedTo = function(args) {
 exports.addChild = function() {
   const navigationEntry = {
     moduleName: "views/newChild/newChild",
-    context: {userKey: userKey},
+    context: {userKey: userKey, children: userChildren},
     animated: false
   }
   topmost.navigate(navigationEntry);

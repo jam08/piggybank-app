@@ -1,8 +1,7 @@
 const firebase = require("nativescript-plugin-firebase");
 var observableModule = require("data/observable")
 var ObservableArray = require("data/observable-array").ObservableArray;
-var frameModule = require("ui/frame");
-var topmost = frameModule.topmost();
+var topmost = require("ui/frame").topmost();
 
 var pageData = new observableModule.fromObject({
   childName: "Child Name",
@@ -13,61 +12,71 @@ var pageData = new observableModule.fromObject({
 });
 
 let page;
-let page1;
 let userKey;
-let children = [];
+let children;
 
 exports.loaded = function(args) {
+
   page = args.object;
   page.bindingContext = pageData;
-  
+
 }
 
 exports.pageNavigatedTo = function(args) {
-  page1 = args.object;
-  var context = page1.navigationContext;
+
+  
+  var context = args.object.navigationContext;
   if(context) {
     console.log("userKey: " + userKey);
     context.type ? pageData.set("allowanceType", context.type) : "";
     context.code ? pageData.set("currencyCode", context.code) : "";
     context.firstPayment ? pageData.set("firstPayment", context.firstPayment) : ""
     context.userKey ? userKey = context.userKey : "";
+    context.children ? children = context.children : "";
   }else {
     console.log("No navigation context");
   }
+
 }
 
 exports.onFocusName = function(eventData) {
+
   const text = eventData.object.text;
-  //console.dir(text);
-  text === "Child Name" ? pageData.set("childName", "") : console.log(text);
-  //pageData.set("childName", "");
+  text === "Child Name" ? pageData.set("childName", "") : "";
+
 }
 
 exports.onFocusAmount = function(eventData) {
+
   const amount = eventData.object.text;
   amount === "0" ? pageData.set("amount", "") : console.log(amount);
+
 }
 
 exports.onDatePickerLoaded = function(args) {
+
   let datePicker = args.object;
   let today = new Date();
   datePicker.day = today.getDate();
   datePicker.month = today.getMonth() + 1;
   datePicker.year = today.getFullYear();
+
 }
 
 exports.onTap = function(eventData) {
+
   const viewId = eventData.object.id;
   viewId === "type" 
   ? 
   topmost.navigate("views/allowance/allowance") 
   : 
   topmost.navigate("views/currency/currency");
+
 }
 
-exports.saveChild = function() {
-  
+
+exports.saveChild = function() { 
+
   const newChild = {
     name: pageData.get("childName"),
     allowanceType: pageData.get("allowanceType"),
@@ -77,16 +86,21 @@ exports.saveChild = function() {
     balance: 0,
     parent: userKey
   };
+
   firebase.push(
     '/children',
     newChild
-).then(
+  ).then(
     function (result) {
       const path = "/users/" + userKey;
       children.push(result.key);
       firebase.update(path, {'children': children});
       console.log("created key: " + result.key);
     }
-);
-  console.log(newChild.firstPayment);
+  ).then(
+    function() {
+      topmost.navigate("views/dashboard/dashboard");
+    } 
+  );
+
 }
