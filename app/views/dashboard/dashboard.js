@@ -20,14 +20,8 @@ var getUserKey = function(email) {
         userKey = key;
         childrenArray = user[key].children;
       }
-      if(!userChildren) {
-        userChildren = childrenArray;
-        console.log("userChildren: " +  userChildren);
-      }else {
-        userChildren.map((childKey) => {
-          console.log("childKey: " + childKey);
-        })
-      }
+      userChildren = childrenArray;
+      //console.log("userChildren: " +  userChildren);
       getChildren(userChildren);
     },
     "/users",
@@ -48,10 +42,10 @@ var getUserKey = function(email) {
 
 var getChildren = function (childrenArray) {
 
-  console.log("result getChildren: " + childrenArray);
+  //console.log("result getChildren: " + childrenArray);
   let count = 0;
   childrenArray.map((key) => {
-      console.log("duh" + key);
+      //console.log("duh" + key);
       firebase.query(
         function(result) {
           const child = result.value;
@@ -89,11 +83,6 @@ exports.loaded = function loaded(args) {
   firebase.getCurrentUser()
     .then(user => getUserKey(user.email))
     .catch(error => console.log("trouble: " + error));
-}
-
-exports.pageNavigatedTo = function(args) {
-  const context = args.object.navigationContex;
-  //console.log(context.user);
 }
 
 exports.addChild = function() {
