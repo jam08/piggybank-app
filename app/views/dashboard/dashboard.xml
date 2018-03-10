@@ -24,7 +24,7 @@
       <ListView.itemTemplate>
         <GridLayout 
           class="listItem"
-          id="{{ name }}" 
+          id="{{ cid }}" 
           columns="*, *, *" 
           rows="*" 
           borderBottomWidth="10" 

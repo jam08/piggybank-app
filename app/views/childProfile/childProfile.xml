@@ -1,0 +1,70 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="loaded" navigatedTo="pageNavigatedTo">
+  <actionBar>
+    <NavigationButton  
+      text="Dashboard"
+      android.systemIcon="ic_menu_close_clear_cancel" 
+      tap="onNavBtnTap"  
+    />
+  </actionBar>
+  <GridLayout columns="*" rows="*, *, ,*, 3*">
+    <Image
+      col="0"
+      row="0"
+      src="{{ image }}"
+      verticalAlignment="center"
+      horizontalAlignment="center"
+    />
+    <Label
+      col="0"
+      row="1"
+      text="{{ name }}"
+      verticalAlignment="center"
+      horizontalAlignment="center"
+    />
+    <Label
+      col="0"
+      row="2"
+      text="{{ balance }}"
+      verticalAlignment="center"
+      horizontalAlignment="center"
+    />
+    <TabView 
+      col="0"
+      row="3"
+      selectedIndexChanged="onSelectedIndexChanged"
+    >
+      <TabView.items >
+        <TabViewItem title="Allowance">
+          <TabViewItem.view>
+            <GridLayout columns="*" rows="*, *">
+              <Button 
+                col="0" 
+                row="0" 
+                text="Make a deposit"
+                borderWidth="1"
+                borderColor="transparent"
+                backgroundColor="transparent"
+              />
+              <Button 
+                col="0" 
+                row="1" 
+                text="Transactions"
+                borderWidth="1"
+                borderColor="transparent"
+                backgroundColor="transparent"
+              />
+            </GridLayout> 
+          </TabViewItem.view>
+        </TabViewItem>
+        <TabViewItem title="My Goals">
+          <TabViewItem.view>
+            <GridLayout columns="*" rows="*, *">
+              <Button col="0" row="0" text="Add Goal"/>
+              <Label col="0" row="1" text="Goal 1"/>
+            </GridLayout> 
+          </TabViewItem.view>
+        </TabViewItem>     
+      </TabView.items>
+    </TabView>
+  </GridLayout>
+</Page>

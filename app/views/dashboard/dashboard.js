@@ -53,7 +53,8 @@ var getChildren = function (childrenArray) {
            let childObj = {
               image: "res://pygge3x",
               name: child[key].name,
-              balance: child[key].balance
+              balance: child[key].balance,
+              cid: key
             }
             let data = pageData.get("children");
             data.setItem(count, childObj);
@@ -95,7 +96,18 @@ exports.addChild = function() {
 }
 
 exports.onItemTap = function(eventData) {
-  console.log(eventData.view.id);
+  let viewId = eventData.view.id;
+  let data = pageData.get("children");
+  let child = data.filter((child) => {
+    return child.cid === viewId;
+  });
+  let childInfo = child[0];
+  const navigationEntry = {
+    moduleName: "views/childProfile/childProfile",
+    context: { childInfo: childInfo },
+    animated: false
+  }
+  topmost.navigate(navigationEntry);
 }
 
 exports.logout = function() {
