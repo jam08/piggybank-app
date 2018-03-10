@@ -4,7 +4,7 @@
   </Page.actionBar>
   <ListView
     items="{{ allowance }}" 
-    itemTap="saveType"
+    itemTap="onTap"
   >
     <ListView.itemTemplate>
       <Label

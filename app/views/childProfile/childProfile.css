@@ -2,3 +2,17 @@ TabView {
     border-width: 1;
     border-color: transparent;
 }
+
+Image {
+    width: 100;
+    height: auto
+}
+
+.label-heading {
+    color: #ffffff;
+}
+
+.label-tab {
+    color: #ffffff;
+    background-color: #3c919b;
+}

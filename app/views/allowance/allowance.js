@@ -19,6 +19,16 @@ exports.loaded = function(args) {
   //#ee671e
 }
 
+exports.onTap = function(eventData) {
+  const itemView = eventData.view;
+  const navigationEntry = {
+    moduleName: "views/weekday/weekday",
+    context: { type: itemView.text },
+    animated: false
+  }
+  topmost.navigate(navigationEntry);
+}
+
 exports.saveType= function(eventData) {
   const itemView = eventData.view;
   const navigationEntry = {

@@ -8,6 +8,8 @@ var pageData = new observableModule.fromObject({
 exports.loaded = function(args) {
   let page = args.object;
   page.bindingContext = pageData;
+  
+  let today = new Date(); 
 }
 exports.pageNavigatedTo = function(args) {
   let context = args.object.navigationContext;

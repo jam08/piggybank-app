@@ -6,6 +6,7 @@ var topmost = require("ui/frame").topmost();
 var pageData = new observableModule.fromObject({
   childName: "Child Name",
   allowanceType: "choose",
+  weekday: "",
   currencyCode: "choose",
   amount: "0",
   firstPayment: ""
@@ -33,6 +34,7 @@ exports.pageNavigatedTo = function(args) {
     context.firstPayment ? pageData.set("firstPayment", context.firstPayment) : ""
     context.userKey ? userKey = context.userKey : "";
     context.children ? children = context.children : "";
+    context.weekday ? pageData.set("weekday", context.weekday) : "";
   }else {
     console.log("No navigation context");
   }
@@ -80,6 +82,7 @@ exports.saveChild = function() {
   const newChild = {
     name: pageData.get("childName"),
     allowanceType: pageData.get("allowanceType"),
+    weekday: pageData.get("weekday"),
     currencyCode: pageData.get("currencyCode"),
     amount: pageData.get("amount"),
     firstPayment: pageData.get("firstPayment"),

@@ -6,11 +6,14 @@
       tap="onNavBtnTap"  
     />
   </actionBar>
-  <GridLayout columns="*" rows="*, *, ,*, 3*">
+  <GridLayout columns="*" rows="2*, *, *, 6*" 
+    paddingTop="20"
+  >
     <Image
       col="0"
       row="0"
       src="{{ image }}"
+      stretch="aspectFit"
       verticalAlignment="center"
       horizontalAlignment="center"
     />
@@ -18,14 +21,17 @@
       col="0"
       row="1"
       text="{{ name }}"
-      verticalAlignment="center"
+      class="label-heading"
+      verticalAlignment="top"
       horizontalAlignment="center"
+
     />
     <Label
       col="0"
       row="2"
       text="{{ balance }}"
-      verticalAlignment="center"
+      class="label-heading"
+      verticalAlignment="top"
       horizontalAlignment="center"
     />
     <TabView 
@@ -36,29 +42,37 @@
       <TabView.items >
         <TabViewItem title="Allowance">
           <TabViewItem.view>
-            <GridLayout columns="*" rows="*, *">
-              <Button 
-                col="0" 
+            <GridLayout columns="*" rows="*, 2*, 2*" backgroundColor="#ffffff">
+              <Label
+                col="0"
                 row="0" 
-                text="Make a deposit"
-                borderWidth="1"
-                borderColor="transparent"
-                backgroundColor="transparent"
+                text="Next allowance in..."
+                class="label-tab"
               />
               <Button 
                 col="0" 
                 row="1" 
+                text="Make a deposit now"
+                borderWidth="1"
+                borderColor="transparent"
+                backgroundColor="transparent"
+                horizontalAlignment="left"
+              />
+              <Button 
+                col="0" 
+                row="2" 
                 text="Transactions"
                 borderWidth="1"
                 borderColor="transparent"
                 backgroundColor="transparent"
+                horizontalAlignment="left"
               />
             </GridLayout> 
           </TabViewItem.view>
         </TabViewItem>
         <TabViewItem title="My Goals">
           <TabViewItem.view>
-            <GridLayout columns="*" rows="*, *">
+            <GridLayout columns="*" rows="*, *" backgroundColor="#ffffff">
               <Button col="0" row="0" text="Add Goal"/>
               <Label col="0" row="1" text="Goal 1"/>
             </GridLayout> 

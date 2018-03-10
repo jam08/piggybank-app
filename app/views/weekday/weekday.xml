@@ -1,0 +1,16 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="loaded" navigatedTo="pageNavigatedTo">
+  <Page.actionBar>
+    <ActionBar title="Pay allowance on"/>
+  </Page.actionBar>
+   <ListView
+    items="{{ week }}" 
+    itemTap="saveWeekday"
+  >
+    <ListView.itemTemplate>
+      <Label
+          class="items"
+          text="{{ weekday }}" 
+        />
+    </ListView.itemTemplate>
+  </ListView>
+</Page>

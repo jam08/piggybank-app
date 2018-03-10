@@ -1,9 +1,5 @@
 <!--<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">-->
 <Page loaded="loaded">
-  <Page.actionBar>
-      <ActionBar title="Login" icon="" class="action-bar">
-      </ActionBar>
-  </Page.actionBar>
   <GridLayout columns="*, *" rows="*, auto, 50, auto, auto, 80, *">
     <Image 
       src="res://pygge3x" 
