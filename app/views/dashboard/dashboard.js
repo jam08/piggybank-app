@@ -94,6 +94,10 @@ exports.addChild = function() {
   topmost.navigate(navigationEntry);
 }
 
+exports.onItemTap = function(eventData) {
+  console.log(eventData.view.id);
+}
+
 exports.logout = function() {
   firebase.logout();
   topmost.navigate("views/login/login");
