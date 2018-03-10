@@ -5,7 +5,7 @@
   <GridLayout
     id="container" 
     columns="*" 
-    rows="*, *, 10*"
+    rows="*, *, 5*, *"
     backgroundColor="#ffffff"
   >
     <Button 
@@ -18,12 +18,13 @@
       borderColor="transparent"
       backgroundColor="transparent" 
       horizontalAlignment="right"
-      />
-    <Label col="0" row="1" class="grid-title" text="MY CHILDREN"/>
-    <ListView col="0" row="2" id="children" items="{{ children }}" separatorColor="transparent">
+    />
+    <Label col="0" row="1" class="grid-title grid-rows" text="MY CHILDREN"/>
+    <ListView col="0" row="2" id="children" class="grid-rows" items="{{ children }}" itemTap="onItemTap" separatorColor="transparent">
       <ListView.itemTemplate>
         <GridLayout 
-          class="listItem" 
+          class="listItem"
+          id="{{ name }}" 
           columns="*, *, *" 
           rows="*" 
           borderBottomWidth="10" 
@@ -49,12 +50,23 @@
             class="item-cash" 
             col="2" 
             row="0" 
-            text="{{ cash }}" 
+            text="{{ balance }}" 
             horizontalAlignment="right" 
             verticalAlignment="center"
           />
         </GridLayout>
       </ListView.itemTemplate>
     </ListView>
+    <Button 
+      col="0" 
+      row="3" 
+      id="logout-btn" 
+      text="LOGOUT" 
+      tap="logout"
+      borderWidth="1"
+      borderColor="transparent"
+      backgroundColor="transparent" 
+      horizontalAlignment="right"
+      />
   </GridLayout>
 </Page>

@@ -1,0 +1,150 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="loaded" navigatedTo="pageNavigatedTo">
+  <actionBar>
+    <NavigationButton  
+      text="Cancel"
+      android.systemIcon="ic_menu_close_clear_cancel" 
+      tap="onNavBtnTap"  
+    />
+  </actionBar>
+  <GridLayout
+    id="container"  
+    columns="*, *, *" 
+    rows="*, *, *, *, *, *, *, *, *"
+    backgroundColor="#ffffff"
+  >
+    <Label 
+      col="0" 
+      row="0" 
+      colSpan="3" 
+      class="grid-title grid-rows" 
+      text="NEW CHILD"
+      horizontalAlignment="left"
+    />
+    <Image 
+      col="0" 
+      row="1" 
+      src="res://pygge3x_bw" 
+      stretch="aspectFit"
+      width="80"
+      verticalAlignment="center"
+      horizontalAlignment="left"
+      marginLeft="10"
+    />
+    <Button 
+      col="1"
+      row="1"
+      colSpan="2"
+      id="profileImg"
+      text="add photo"
+      borderWidth="1"
+      borderColor="transparent"
+      backgroundColor="transparent"
+      textTransform="capitalize"
+      horizontalAlignment="left"
+      verticalAlignment="center"
+      marginRight="10"
+    />
+
+    <TextField
+      col="0"
+      row="2"
+      text="{{ childName }}"
+      colSpan="3"
+      hint="Child name"
+      id="childName"
+      class="grid-rows"  
+      autocorrect="false" 
+      autocaptalizationType="none"
+      focus="onFocusName"
+      borderWidth="1"
+      borderColor="transparent"
+    />
+    <Button 
+     id="type" 
+     class="grid-rows select-btn" 
+     col="0" row="3" colSpan="2" 
+     text="Allowance Type" 
+     tap="onTap" 
+     borderWidth="1"
+     borderColor="transparent"
+     textTransform="capitalize"
+    />
+    <Label 
+      id="allowanceType" 
+      class="grid-rows right-label" 
+      col="2" row="3" 
+      text="{{ allowanceType }}"  
+      verticalAlignment="center"
+      horizontalAlignment="right"
+    />
+    <Button 
+      id="code" 
+      col="0" row="4" colSpan="2" 
+      text="Currency" 
+      class="grid-rows select-btn" 
+      tap="onTap"
+      borderWidth="1"
+      borderColor="transparent"
+      backgroundColor="transparent"
+      textTransform="capitalize"
+    />
+    <Label 
+      id="currencyCode"  
+      col="2" row="4" 
+      text="{{ currencyCode }}" 
+      class="grid-rows right-label"
+      verticalAlignment="center"
+      horizontalAlignment="right"
+    />
+    <label
+      col="0"
+      row="5"
+      colSpan="2"
+      text="Allowance"
+      class="grid-rows left-label"
+      verticalAlignment="center"
+      horizontalAlignment="left"
+    />
+    <TextField
+      col="2"
+      row="5"
+      text="{{ amount }}"
+      hint="0"
+      focus="onFocusAmount"
+      id="amount"
+      class="grid-rows input-allowance"
+      borderBottomWidth="1"
+      borderBottomColor="transparent"
+      horizontalAlignment="right"
+      placeholderColor="#bbbab8"
+    />
+    <Label
+     col="0"
+     row="6"
+     colSpan="3"
+     text="Start Date"
+     class="grid-rows left-label"
+     verticalAlignment="center"
+     horizontalAlignment="left"
+    />
+    <!--<DatePicker 
+      col="0"
+      row="7"
+      colSpan="3"
+      id="datePicker"
+      loaded="onDatePickerLoaded"
+      verticalAlignment="center"
+    />-->
+    <Button 
+     col="0"
+     row="7"
+     colSpan="3"
+     text="Save"
+     borderWidth="1"
+     borderColor="transparent"
+     backgroundColor="#ee671e"
+     color="#ffffff"
+     tap="saveChild"
+    />
+  </GridLayout>
+</Page>

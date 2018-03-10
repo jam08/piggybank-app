@@ -19,29 +19,38 @@ exports.loaded = function(args) {
    * Hardcoded login so I can continue to work on the app.
    * Need to remove this later and uncomment the firebase.getCurrentUser().
    */
+ /*
   if(isLoggedIn) {
     const navigationEntry = {
       moduleName: "views/dashboard/dashboard",
       context: {user: "Janaina"},
-      animated: false
+      animated: false,
+      backstackVisible: false
     }
     const topmost = frameModule.topmost();
     topmost.navigate(navigationEntry)
   }
-  /*
+  //*/
+  ///*
   firebase.getCurrentUser()
     .then((user) => {
       const navigationEntry = {
         moduleName: "views/dashboard/dashboard",
-        context: {user: user.uid},
+        context: {user: user.email},
         animated: false
       }
       const topmost = frameModule.topmost();
-      topmost.navigate(navigationEntry)
+      topmost.navigate(navigationEntry);
     })
     .catch(error => console.log("trouble: " + error));
-    */
+    //*/
 }
+
+exports.onFocus = function(eventData) {
+  const text = eventData.object.text;
+  text === "email@email.com" ? user.set("email", "") : "";
+}
+
 exports.signIn = function() {
   if (!user.email || !user.password) {
     alert("Please provide both an email address and password.");
@@ -58,11 +67,10 @@ exports.signIn = function() {
           const topmost = frameModule.topmost();
           topmost.navigate("views/dashboard/dashboard");
           const response = JSON.stringify(result);
-          console.log(response);
+          //console.log(response);
         })
         .catch(error => console.log(error));
     }
-    alert(user.email);
 };
 
 exports.register = function() {
