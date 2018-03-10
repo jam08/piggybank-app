@@ -3,6 +3,7 @@
   font-size: 20;
   font-family: "Lato";
   font-weight: 300;
+  color:#616161;
 }
 ActionBar {
   border-width: 1;
@@ -17,10 +18,31 @@ GridLayout {
   background-color: #fcc414;
 }
 
+#container {
+  width: 100%;
+  /*width: 90%;
+  margin-left: 10;
+  margin-right: 10;*/
+}
+.grid-rows {
+  margin-left: 10;
+  margin-right: 10;
+}
+.grid-title {
+  font-weight: 400;
+  vertical-align: center;
+}
+
 .btn {
   width: 85%;
   margin-top: 10;
   background-color: #ee671e;
+  border-width: 1;
+  border-color: transparent;
   color: #ffffff;
   font-size: 20;
+}
+
+ListView {
+  height: 100%;
 }

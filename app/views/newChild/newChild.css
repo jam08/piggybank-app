@@ -1,0 +1,29 @@
+#profileImg {
+  color: #fcc414;
+}
+
+TextField {
+  
+  color: #fcc414;
+}
+
+.select-btn {
+  text-align: left;
+}
+
+.input-allowance {
+  width: 100%;
+  text-align: right;
+}
+
+Label {
+  width: 100%;
+}
+.right-label {
+  text-align: right;
+  color: #bbbab8;
+}
+
+.left-label {
+  text-align: left;
+}

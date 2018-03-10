@@ -1,0 +1,16 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="loaded">
+  <Page.actionBar>
+    <ActionBar title="Allowance Type"/>
+  </Page.actionBar>
+  <ListView
+    items="{{ allowance }}" 
+    itemTap="saveType"
+  >
+    <ListView.itemTemplate>
+      <Label
+          class="items"
+          text="{{ type }}" 
+        />
+    </ListView.itemTemplate>
+  </ListView>
+</Page>

@@ -1,0 +1,72 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="loaded">
+  <Page.actionBar>
+    <ActionBar title="DASHBOARD"/>
+  </Page.actionBar>
+  <GridLayout
+    id="container" 
+    columns="*" 
+    rows="*, *, 5*, *"
+    backgroundColor="#ffffff"
+  >
+    <Button 
+      col="0" 
+      row="0" 
+      id="add-child" 
+      text="+ ADD CHILD" 
+      tap="addChild"
+      borderWidth="1"
+      borderColor="transparent"
+      backgroundColor="transparent" 
+      horizontalAlignment="right"
+    />
+    <Label col="0" row="1" class="grid-title grid-rows" text="MY CHILDREN"/>
+    <ListView col="0" row="2" id="children" class="grid-rows" items="{{ children }}" itemTap="onItemTap" separatorColor="transparent">
+      <ListView.itemTemplate>
+        <GridLayout 
+          class="listItem"
+          id="{{ name }}" 
+          columns="*, *, *" 
+          rows="*" 
+          borderBottomWidth="10" 
+          borderBottomColor="#ffffff"
+        >
+          <Image 
+            class="item-img"  
+            col="0" 
+            row="0" 
+            src="{{ image }}" 
+            horizontalAlignment="left" 
+            verticalAlignment="center"
+          />
+          <Label 
+            class="item-name" 
+            col="1" 
+            row="0" 
+            text="{{ name }}" 
+            horizontalAlignment="center" 
+            verticalAlignment="center"
+          />
+          <Label 
+            class="item-cash" 
+            col="2" 
+            row="0" 
+            text="{{ balance }}" 
+            horizontalAlignment="right" 
+            verticalAlignment="center"
+          />
+        </GridLayout>
+      </ListView.itemTemplate>
+    </ListView>
+    <Button 
+      col="0" 
+      row="3" 
+      id="logout-btn" 
+      text="LOGOUT" 
+      tap="logout"
+      borderWidth="1"
+      borderColor="transparent"
+      backgroundColor="transparent" 
+      horizontalAlignment="right"
+      />
+  </GridLayout>
+</Page>
