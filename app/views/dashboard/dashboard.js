@@ -5,7 +5,8 @@ var topmost = require("ui/frame").topmost();
 
 var pageData = new observableModule.fromObject({
   children: new ObservableArray([
-  ])
+  ]),
+  userKey: ""
 });
 
 let userKey;
@@ -17,12 +18,14 @@ var getUserKey = function(email) {
       const user = result.value;
       let childrenArray;
       for(const key in user) {
-        userKey = key;
+        pageData.set("userKey", key);
+        //console.log(pageData.get("userKey"));
         childrenArray = user[key].children;
       }
       userChildren = childrenArray;
-      //console.log("userChildren: " +  userChildren);
-      getChildren(userChildren);
+      if(userChildren) {
+        getChildren(userChildren);
+      }
     },
     "/users",
     {
@@ -38,14 +41,14 @@ var getUserKey = function(email) {
       }
     }
   );
+  //console.log(pageData.get("userKey"));
 }
 
 var getChildren = function (childrenArray) {
 
-  //console.log("result getChildren: " + childrenArray);
   let count = 0;
+
   childrenArray.map((key) => {
-      //console.log("duh" + key);
       firebase.query(
         function(result) {
           const child = result.value;
@@ -54,6 +57,10 @@ var getChildren = function (childrenArray) {
               image: "res://pygge3x",
               name: child[key].name,
               balance: child[key].balance,
+              allowanceType: child[key].allowanceType,
+              weekday: child[key].weekday,
+              firstPayment: child[key].firstPayment,
+              currency: child[key].currency,
               cid: key
             }
             let data = pageData.get("children");
@@ -75,6 +82,7 @@ var getChildren = function (childrenArray) {
       );
     }
   );
+
 }
 
 exports.loaded = function loaded(args) {
@@ -89,7 +97,7 @@ exports.loaded = function loaded(args) {
 exports.addChild = function() {
   const navigationEntry = {
     moduleName: "views/newChild/newChild",
-    context: {userKey: userKey, children: userChildren},
+    context: {userKey: pageData.get("userKey"), children: userChildren},
     animated: false
   }
   topmost.navigate(navigationEntry);

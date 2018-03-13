@@ -14,7 +14,7 @@ var pageData = new observableModule.fromObject({
 
 let page;
 let userKey;
-let children;
+let children = [];
 
 exports.loaded = function(args) {
 
@@ -25,10 +25,8 @@ exports.loaded = function(args) {
 
 exports.pageNavigatedTo = function(args) {
 
-  
   var context = args.object.navigationContext;
   if(context) {
-    console.log("userKey: " + userKey);
     context.type ? pageData.set("allowanceType", context.type) : "";
     context.code ? pageData.set("currencyCode", context.code) : "";
     context.firstPayment ? pageData.set("firstPayment", context.firstPayment) : ""
@@ -76,8 +74,8 @@ exports.onTap = function(eventData) {
 
 }
 
-
-exports.saveChild = function() { 
+exports.saveChild = function() {
+  console.log(children); 
 
   const newChild = {
     name: pageData.get("childName"),
@@ -94,7 +92,7 @@ exports.saveChild = function() {
     '/children',
     newChild
   ).then(
-    function (result) {
+    function(result) {
       const path = "/users/" + userKey;
       children.push(result.key);
       firebase.update(path, {'children': children});

@@ -46,7 +46,7 @@
               <Label
                 col="0"
                 row="0" 
-                text="Next allowance in..."
+                text="{{ message }}"
                 class="label-tab"
               />
               <Button 

@@ -5,13 +5,13 @@ var topmost = frameModule.topmost();
 
 var pageData = new observableModule.fromObject({
   week: new ObservableArray([
-    { weekday: "SUNDAY" },
-    { weekday: "MONDAY" },
-    { weekday: "TUESDAY" }, 
-    { weekday: "WEDNESDAY" },
-    { weekday: "THURSDAY" },
-    { weekday: "FRIDAY" },
-    { weekday: "SATURDAY" }
+    { weekday: "SUNDAY", index: 0 },
+    { weekday: "MONDAY", index: 1 },
+    { weekday: "TUESDAY", index: 2 }, 
+    { weekday: "WEDNESDAY", index: 3 },
+    { weekday: "THURSDAY", index: 4 },
+    { weekday: "FRIDAY", index: 5 },
+    { weekday: "SATURDAY", index: 6 }
   ])
 });
 
@@ -32,9 +32,15 @@ exports.pageNavigatedTo = function(args) {
 
 exports.saveWeekday= function(eventData) {
   const itemView = eventData.view;
+  let weekdayIndex;
+  let week = pageData.get("week");
+  week.map((obj) => {
+    obj.weekday === itemView.text ? weekdayIndex = obj.index : "";
+  })
+  console.log(weekdayIndex);
   const navigationEntry = {
     moduleName: "views/newChild/newChild",
-    context: {type: type, weekday: itemView.text },
+    context: {type: type, weekday: weekdayIndex },
     animated: false,
   }
 
