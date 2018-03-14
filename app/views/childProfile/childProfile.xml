@@ -38,25 +38,42 @@
       col="0"
       row="3"
       selectedIndexChanged="onSelectedIndexChanged"
+      effectiveBorderBottomWidth="1"
+      borderBottomWidth="1"
+      borderolor="transparent"
+      androidSelectedTabHighlightColor="#ee671e"
     >
-      <TabView.items >
+      <TabView.items>
         <TabViewItem title="Allowance">
           <TabViewItem.view>
-            <GridLayout columns="*" rows="*, 2*" backgroundColor="#ffffff">
+            <GridLayout 
+              columns="2*, *" 
+              rows="*, *" 
+              backgroundColor="#ffffff"
+            >
               <Label
                 col="0"
-                row="0" 
+                row="0"
+                colSpan="2" 
                 text="{{ message }}"
                 class="label-tab"
+                verticalAlignment="top"
               />
-              <Button 
-                col="0" 
+              <Label
+                col="0"
                 row="1" 
                 text="Make a deposit now"
-                borderWidth="1"
-                borderColor="transparent"
-                backgroundColor="transparent"
+                class="grid-rows"
+                verticalAlignment="top"
                 horizontalAlignment="left"
+              />
+              <Button 
+                col="2" 
+                row="1" 
+                text="+"
+                class="grid-rows sm-round-btn"
+                verticalAlignment="top"
+                horizontalAlignment="right"
               />
               <!--<Button 
                 col="0" 
@@ -72,12 +89,15 @@
         </TabViewItem>
         <TabViewItem title="My Goals">
           <TabViewItem.view>
-            <GridLayout columns="*" rows="*, *" backgroundColor="#ffffff">
+            <GridLayout columns="*" rows="*, 3*" backgroundColor="#ffffff">
               <Button
                 col="0" 
                 row="0" 
                 tap="onTap"
                 text="Add Goal"
+                borderWidth="1"
+                borderColor="transparent"
+                backgroundColor="transparent"
               />
               <ListView col="0" row="1" class="grid-rows" items="{{ goals }}" itemTap="onItemTap" separatorColor="transparent">
                 <ListView.itemTemplate>
@@ -86,7 +106,6 @@
                     id="{{ gid }}" 
                     columns="*, *, *" 
                     rows="*" 
-                    backgroundColor="blue"
                   >
                     <Image 
                       class="item-img"  

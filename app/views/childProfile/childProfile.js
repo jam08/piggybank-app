@@ -32,7 +32,8 @@ var getChildKey = function(id) {
         pageData.set("firstPayment", child[key].firstPayment);
         pageData.set("name", child[key].name);
         pageData.set("balance", child[key].balance);
-        pageData.set("image", child[key].image);
+        pageData.set("image", "res://pygge3x");
+        //pageData.set("image", child[key].image);
         child[key].goals ? goalsArray = child[key].goals : goalsArray = [];
         
       }

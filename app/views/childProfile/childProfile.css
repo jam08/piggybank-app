@@ -12,7 +12,11 @@ Image {
     color: #ffffff;
 }
 
+
 .label-tab {
-    color: #ffffff;
-    background-color: #3c919b;
+    height: 50;
+    text-align: center;
+    color: #3c919b;
+    background-color: #ededed;
+    padding-top: 10;
 }

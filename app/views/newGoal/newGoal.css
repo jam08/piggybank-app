@@ -1,0 +1,9 @@
+GridLayout {
+  height: 45%
+}
+
+TextField {
+  width: 85%;
+  padding-left: 10;
+  vertical-align: bottom;
+}

@@ -6,7 +6,12 @@
       tap="onNavBtnTap"  
     />
   </actionBar>
-  <GridLayout columns="*" rows="*, *, *" backgroundColor="#ffffff">
+  <GridLayout 
+    columns="*" 
+    rows="*, *, *" 
+    backgroundColor="#ffffff"
+    verticalAlignment="top"
+  >
     <TextField
       col="0"
       row="0"
@@ -19,6 +24,7 @@
       focus="onFocusName"
       borderWidth="1"
       borderColor="transparent"
+      borderBottomColor="#ededed"
     />
     <TextField
       col="0"
@@ -32,11 +38,13 @@
       focus="onFocusPrice"
       borderWidth="1"
       borderColor="transparent"
+      borderBottomColor="#ededed"
     />
     <Button
       col="0"
       row="2"
       text="Add"
+      class="btn"
       tap="saveGoal"
     />
   </GridLayout>

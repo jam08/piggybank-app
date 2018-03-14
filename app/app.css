@@ -46,3 +46,20 @@ GridLayout {
 ListView {
   height: 100%;
 }
+
+.listItem {
+  height: 100;
+  padding-left: 10;
+  padding-right: 10;
+  background-color: #ededed;
+}
+
+.sm-round-btn {
+  width: 50;
+  height: auto;
+  border-width: 1;
+  border-radius: 50;
+  border-color: transparent;
+  color: #ffffff;
+  background-color: #3c919b;
+}
