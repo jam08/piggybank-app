@@ -1,4 +1,4 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="onLoaded">
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="onLoaded" navigatedTo="pageNavigatedTo">
   <Page.actionBar>
     <ActionBar title="First Allowance Date"/>
     <NavigationButton  
@@ -8,7 +8,7 @@
     />
   </Page.actionBar>
   <GridLayout columns="*" rows="*, *">
-    <DatePicker 
+    <DatePicker
       col="0"
       row="0"
       id="datePicker"

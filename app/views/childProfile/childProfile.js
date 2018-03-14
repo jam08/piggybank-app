@@ -6,34 +6,119 @@ var topmost = require("ui/frame").topmost();
 var pageData = new observableModule.fromObject({
 });
 
-let weekday = ["SUNDAY", "MONDAY", "TUESDAY","WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
+let page;
+let message;
+let today = new Date();
+let goals = [];
+
+let nextPaymentDay;
+let nextPaymentMonth;
+let nextPaymentYear;
+let payDate;
+
+function getDaysLeft(allowance, day) {
+  if(allowanceDay > day) {
+    daysLeft = allowanceDay - day;
+    message = "Next allowance in " + daysLeft + " days";
+    pageData.set("message", message);
+  }else if(allowanceDay < day) {
+    let daysLeft = 7 + (allowanceDay - day);
+    message = "Next allowance in " + daysLeft + " days";
+    pageData.set("message", message);
+  }else {
+    pageData.set("message", "Yay, it's allowance day!");
+  }
+}
+function getWeekPayDay(payDay, allowanceType) {
+  let lastDayMonth =  new Date(payDay.year, payDay.month, 0);
+  let remain = lastDayMonth - payDay.day;
+  if(remain == 14) {
+    nextPaymentDay = lastDayMonth;
+  }else if(remain < 14) {
+    nextPaymentDay = 14 - remain;
+    nextPaymentMonth = payDay.month + 1;
+  }else {
+    nextPaymentDay = payDay.day + 14;
+  }
+  payDate = nextPaymentYear + "/" + nextPaymentMonth + "/" + nextPaymentDay;
+  message = "Next allowance on " + payDate;
+  pageData.set("message", message);
+  
+}
+function getPayDay(payDay, type) {
+
+  if(payDay.month < 12) {
+    nextPaymentMonth = payDay.month + 1;
+    nextPaymentYear = payDay.year;
+    let lastDayMonth = new Date(nextPaymentYear, nextPaymentMonth, 0);
+    payDay.day < lastDayMonth ? nextPaymentDay = payDay.day : nextPaymentDay = lastDayMonth;
+
+  }else {
+    nextPaymentDay = payDay.day;
+    nextPaymentMonth = 1;
+    nextPaymentYear = payDay.year + 1;
+  }
+  payDate = nextPaymentYear + "/" + nextPaymentMonth + "/" + nextPaymentDay;
+  message = "Next allowance on " + payDate;
+  pageData.set("message", message);
+}
 
 exports.loaded = function(args) {
-  let page = args.object;
+  page = args.object;
   page.bindingContext = pageData;
   
 }
 exports.pageNavigatedTo = function(args) {
-
-  let today = new Date();
+  let daysLeft;
   let day = today.getDay();
-  console.log(weekday[day]); 
-  let allowanceDay = weekday[day];
-  
-  
   let context = args.object.navigationContext;
-
-  console.log(context.childInfo.weekday);
-
+  let allowanceDay = context.childInfo.weekday;
+  let allowanceType = context.childInfo.allowanceType;
+  let payDay = context.childInfo.firstPayment;
+  
   pageData.set("image", context.childInfo.image);
   pageData.set("name", context.childInfo.name);
   pageData.set("balance", context.childInfo.balance);
-  //pageData.set("allowanceDay", )
-  let message = "Next allowance in ";
+  pageData.set("cid", context.childInfo.cid);
   
-  allowanceDay === context.childInfo.weekday
-  ?
-  pageData.set("message", "Yay, allowance day!")
-  :
-  pageData.set("message", message);
+  switch(allowanceType) {
+    case "WEEKLY":
+      getDaysLeft(allowanceDay, day);
+      break;
+    
+    case "BI-WEEKLY":
+      getWeekPayDay(payDay, allowanceType);
+      break;
+
+    case "MONTHLY":
+      getPayDay(payDay, allowanceType);
+      break;
+  }
+}
+
+exports.onTap = function(eventData) {
+  let navigationEntry = {
+    moduleName: "views/newGoal/newGoal",
+    context: { cid: pageData.get("cid") },
+    animated: false
+  }
+  topmost.navigate(navigationEntry);
+  //console.log("goal!!!");
+  /*let newGoal = {
+    name: "",
+    price: "",
+    cid: pageData.get("cid")
+  };
+  firebase.push(
+    '/goals',
+    newGoal
+  ).then(
+    function(result) {
+      const path = "/children/" + pageData.get("cid");
+      console.log(path);
+      goals.push(result.key);
+      firebase.update(path, {'goals': goals});
+      console.log("created key: " + result.key);
+    }
+  );*/
 }

@@ -75,7 +75,7 @@ exports.onTap = function(eventData) {
 }
 
 exports.saveChild = function() {
-  console.log(children); 
+  //console.log(children); 
 
   const newChild = {
     name: pageData.get("childName"),

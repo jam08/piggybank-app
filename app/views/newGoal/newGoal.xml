@@ -1,0 +1,43 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="loaded" navigatedTo="pageNavigatedTo">
+  <actionBar>
+    <NavigationButton  
+      text="Cancel"
+      android.systemIcon="ic_menu_close_clear_cancel" 
+      tap="onNavBtnTap"  
+    />
+  </actionBar>
+  <GridLayout columns="*" rows="*, *, *">
+    <TextField
+      col="0"
+      row="0"
+      text="{{ name }}"
+      hint="Goal"
+      id="goalName"
+      class="grid-rows"  
+      autocorrect="false" 
+      autocaptalizationType="none"
+      focus="onFocusName"
+      borderWidth="1"
+      borderColor="transparent"
+    />
+    <TextField
+      col="0"
+      row="1"
+      text="{{ price }}"
+      hint="Price"
+      id="price"
+      class="grid-rows"  
+      autocorrect="false" 
+      autocaptalizationType="none"
+      focus="onFocusPrice"
+      borderWidth="1"
+      borderColor="transparent"
+    />
+    <Button
+      col="0"
+      row="2"
+      text="Add"
+      tap="onTap"
+    />
+  </GridLayout>
+</Page>

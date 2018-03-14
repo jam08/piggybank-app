@@ -21,26 +21,20 @@ exports.loaded = function(args) {
 
 exports.onTap = function(eventData) {
   const itemView = eventData.view;
-  const navigationEntry = {
+  let navigationEntry;
+  console.log("from allowance: " + itemView.text);
+  itemView.text === "WEEKLY"
+  ? 
+  navigationEntry = {
     moduleName: "views/weekday/weekday",
+    context: { type: itemView.text },
+    animated: false
+  }
+  :
+  navigationEntry = {
+    moduleName: "views/paymentDate/paymentDate",
     context: { type: itemView.text },
     animated: false
   }
   topmost.navigate(navigationEntry);
 }
-
-exports.saveType= function(eventData) {
-  const itemView = eventData.view;
-  const navigationEntry = {
-    moduleName: "views/newChild/newChild",
-    context: {type: itemView.text},
-    animated: false,
-    backstackVisible: false
-  }
-  itemView.text === "MONTHLY"
-  ?
-  topmost.navigate("views/paymentDate/paymentDate")
-  :
-  topmost.navigate(navigationEntry);
-
-};

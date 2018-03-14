@@ -1,25 +1,48 @@
 //var frameModule = require("ui/frame");
 var topmost = require("ui/frame").topmost();
+var datePickerModule = require("ui/date-picker");
 
+let allowanceType;
 let firstPayment;
+let page;
+let date;
+let datePicker;
 
-exports.onLoaded = function(args) {
-  const page = args.object;
-  const date = page.getViewById("datePicker").date;
-  
+var getNewDate = function() {
+  date = datePicker.date;
   const weekday = date.getDay();
   const dd = date.getDate();
   const mm = date.getMonth() + 1;
   const yyyy = date.getFullYear();
 
-  firstPayment = yyyy + "/" + mm + "/" + dd;
-  console.log(firstPayment);
+  firstPayment = {
+    year: yyyy,
+    month: mm,
+    day: dd
+  };
+  return firstPayment;
+}
+
+exports.onLoaded = function(args) {
+  page = args.object;
+  datePicker = page.getViewById("datePicker");
+  date = datePicker.date;
+  
+  const dd = date.getDate();
+  const mm = date.getMonth() + 1;
+  const yyyy = date.getFullYear();
+}
+
+exports.pageNavigatedTo = function(args) {
+  let context = args.object.navigationContext;
+  allowanceType = context.type;
 }
 
 exports.onTap = function() {
+  let payday = getNewDate();
   const navigationEntry = {
     moduleName: "views/newChild/newChild",
-    context: {firstPayment: firstPayment, type: "MONTHLY"},
+    context: {firstPayment: payday, type: allowanceType},
     animated: false,
     backstackVisible: false
   }

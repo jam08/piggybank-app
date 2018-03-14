@@ -42,7 +42,7 @@
       <TabView.items >
         <TabViewItem title="Allowance">
           <TabViewItem.view>
-            <GridLayout columns="*" rows="*, 2*, 2*" backgroundColor="#ffffff">
+            <GridLayout columns="*" rows="*, 2*" backgroundColor="#ffffff">
               <Label
                 col="0"
                 row="0" 
@@ -58,7 +58,7 @@
                 backgroundColor="transparent"
                 horizontalAlignment="left"
               />
-              <Button 
+              <!--<Button 
                 col="0" 
                 row="2" 
                 text="Transactions"
@@ -66,14 +66,19 @@
                 borderColor="transparent"
                 backgroundColor="transparent"
                 horizontalAlignment="left"
-              />
+              />-->
             </GridLayout> 
           </TabViewItem.view>
         </TabViewItem>
         <TabViewItem title="My Goals">
           <TabViewItem.view>
             <GridLayout columns="*" rows="*, *" backgroundColor="#ffffff">
-              <Button col="0" row="0" text="Add Goal"/>
+              <Button
+                col="0" 
+                row="0" 
+                tap="onTap"
+                text="Add Goal"
+              />
               <Label col="0" row="1" text="Goal 1"/>
             </GridLayout> 
           </TabViewItem.view>
