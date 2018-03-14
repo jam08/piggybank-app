@@ -33,6 +33,7 @@ var getChildKey = function(id) {
         pageData.set("name", child[key].name);
         pageData.set("balance", child[key].balance);
         pageData.set("image", "res://pygge3x");
+        pageData.set("currency", child[key].currencyCode);
         //pageData.set("image", child[key].image);
         child[key].goals ? goalsArray = child[key].goals : goalsArray = [];
         
@@ -69,6 +70,7 @@ var getGoals = function (goalsArray) {
               image: "res://pygge3x",
               name: goal[key].name,
               price: goal[key].price,
+              currency: pageData.get("currency"),
               gid: key
             }
             console.log(goalObj.name);

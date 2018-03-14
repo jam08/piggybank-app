@@ -127,7 +127,7 @@
                       class="item-cash" 
                       col="2" 
                       row="0" 
-                      text="{{ price }}" 
+                      text="{{ price + ' ' + currency }}" 
                       horizontalAlignment="right" 
                       verticalAlignment="center"
                     />
