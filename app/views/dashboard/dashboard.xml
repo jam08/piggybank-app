@@ -20,7 +20,15 @@
       horizontalAlignment="right"
     />
     <Label col="0" row="1" class="grid-title grid-rows" text="MY CHILDREN"/>
-    <ListView col="0" row="2" id="children" class="grid-rows" items="{{ children }}" itemTap="onItemTap" separatorColor="transparent">
+    <ListView 
+      col="0" 
+      row="2" 
+      id="children" 
+      class="grid-rows" 
+      items="{{ children }}" 
+      itemTap="onItemTap" 
+      separatorColor="transparent"
+      >
       <ListView.itemTemplate>
         <GridLayout 
           class="listItem"

@@ -8,6 +8,7 @@ var pageData = new observableModule.fromObject({
 
 let page;
 let context;
+let goals = [];
 
 exports.loaded = function(args) {
   page = args.object;
@@ -17,35 +18,33 @@ exports.loaded = function(args) {
 exports.pageNavigatedTo = function(args) {
   context = args.object.navigationContext;
   pageData.set("cid", context.cid);
-  console.log(pageData.get("cid"));
+  //console.log("newGoal:" + pageData.get("cid"));
 }
-exports.onTap = function() {
+
+exports.saveGoal = function() {
     //console.log("goal!!!");
-  let newGoal = {
-    name: page.getViewById("goalName"),
-    price: page.getViewById("price"),
+  const newGoal = {
+    name: page.getViewById("goalName").text,
+    price: page.getViewById("price").text,
     cid: pageData.get("cid")
   };
+
   firebase.push(
     '/goals',
     newGoal
   ).then(
     function(result) {
-      console.log("created key: " + result.key);
+      const path = "/children/" + pageData.get("cid");
+      goals.push(result.key);
+      firebase.update(path, {'goals': goals});
+      //console.log("created key: " + result.key);
     }
-  );
-  /*firebase.push(
-    '/goals',
-    newGoal
-  ).then(
-    function(result) {
-      //const path = "/children/" + pageData.get("cid");
-      //console.log("path: " + path);
-        //goals.push(result.key);
-      //console.log("goals: " + goals);
-        //firebase.update(path, {'goals': goals});
-      console.log("created key: " + result.key);
+  ).then(() => {
+    let navigationEntry = {
+      moduleName: "views/childProfile/childProfile",
+      context: { cid: pageData.get("cid"), goals: goals },
+      animated: false
     }
-  );*/
-    //topmost.navigate("views/childProfile/childProfile");
-  }
+    topmost.navigate(navigationEntry);
+  });
+}

@@ -6,7 +6,7 @@
       tap="onNavBtnTap"  
     />
   </actionBar>
-  <GridLayout columns="*" rows="*, *, *">
+  <GridLayout columns="*" rows="*, *, *" backgroundColor="#ffffff">
     <TextField
       col="0"
       row="0"
@@ -37,7 +37,7 @@
       col="0"
       row="2"
       text="Add"
-      tap="onTap"
+      tap="saveGoal"
     />
   </GridLayout>
 </Page>

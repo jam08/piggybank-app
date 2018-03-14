@@ -82,7 +82,6 @@ var getChildren = function (childrenArray) {
       );
     }
   );
-
 }
 
 exports.loaded = function loaded(args) {

@@ -79,8 +79,43 @@
                 tap="onTap"
                 text="Add Goal"
               />
-              <Label col="0" row="1" text="Goal 1"/>
-            </GridLayout> 
+              <ListView col="0" row="1" class="grid-rows" items="{{ goals }}" itemTap="onItemTap" separatorColor="transparent">
+                <ListView.itemTemplate>
+                  <GridLayout 
+                    class="listItem"
+                    id="{{ gid }}" 
+                    columns="*, *, *" 
+                    rows="*" 
+                    backgroundColor="blue"
+                  >
+                    <Image 
+                      class="item-img"  
+                      col="0" 
+                      row="0" 
+                      src="{{ image }}" 
+                      horizontalAlignment="left" 
+                      verticalAlignment="center"
+                    />
+                    <Label 
+                      class="item-name" 
+                      col="1" 
+                      row="0" 
+                      text="{{ name }}" 
+                      horizontalAlignment="center" 
+                      verticalAlignment="center"
+                    />
+                    <Label 
+                      class="item-cash" 
+                      col="2" 
+                      row="0" 
+                      text="{{ price }}" 
+                      horizontalAlignment="right" 
+                      verticalAlignment="center"
+                    />
+                  </GridLayout>
+                </ListView.itemTemplate>
+              </ListView> 
+            </GridLayout>
           </TabViewItem.view>
         </TabViewItem>     
       </TabView.items>
